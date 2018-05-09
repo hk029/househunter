@@ -37,6 +37,7 @@
     <div class="back-to-top" @click="toTop">
       <img src="./assets/rocket.svg" alt="">
     </div>
+    <a href="https://github.com/hk029/househunter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./assets/forkme.png" alt="Fork me on GitHub"></a>
   </div>
 </template>
 
