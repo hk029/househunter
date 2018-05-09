@@ -23,5 +23,5 @@ app.use('/api', apiRouter);
 
 
 
-app.listen(8000);
-console.log('listen on http://localhost:8000')
+app.listen(80);
+console.log('listen on http://localhost:80')
