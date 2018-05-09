@@ -1,7 +1,10 @@
 <template>
   <div class="list">
      <el-table
-     :v-loading="loading"
+     v-loading="loading"
+     element-loading-text="拼命加载中"
+    element-loading-spinner="el-icon-loading"
+
     :data="tableData"
     style="width: 100%;text-align:center">
     <el-table-column
@@ -55,7 +58,7 @@
     </el-table-column>
   </el-table>
   <el-pagination
-  :page-size=30
+  :page-size=20
   :total="total"
       layout=" pager,jumper"
       :current-page="curpage"
@@ -78,7 +81,7 @@ export default {
       tableData: [],
       curpage: 0,
       total:50,
-      pagesize: 30,
+      pagesize: 20,
       curCount: 0,
       loading: true,
       hasNext: true,
@@ -102,6 +105,7 @@ export default {
       var that = this;
       var mykeyword = this.keyword || ".*";
       this.loading = true;
+      this.tableData.splice(0,2);
       this.$http
         .get(
           this.api +
@@ -114,11 +118,11 @@ export default {
         )
         .then(response => {
           var topics = [];
+            that.loading = false;
           if (response.status === 200) {
             // console.log(response);
             topics = response.data.data;
             that.curCount = Number(response.data.count);
-            that.loading = true;
             // 如果获取的数据count小于一页数目，说明是最后一页了
             if (that.curCount < that.pagesize) {
               that.hasNext = false;
@@ -131,6 +135,8 @@ export default {
               that.tableData = topics;
             }
           }
+        }).catch(err=>{
+            that.loading = false;
         });
     },
     updateList() {
