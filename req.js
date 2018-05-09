@@ -87,7 +87,7 @@ function getDouban() {
 
 function doJob() {
   // 每60秒爬一次豆瓣（每小时150次的限制）
-  setInterval(getDouban(), 60000)
+  setInterval(getDouban(), 120000)
   // 每天小时更新到主服务器上
   var rule = new schedule.RecurrenceRule();
   rule.minute = 10;
