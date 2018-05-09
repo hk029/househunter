@@ -105,7 +105,7 @@ export default {
       var that = this;
       var mykeyword = this.keyword || ".*";
       this.loading = true;
-      this.tableData.splice(2,a.length-2);
+      this.tableData.splice(2,this.tableData.length-2);
       this.$http
         .get(
           this.api +
