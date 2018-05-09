@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <h2>租房猎手</h2>
+      <div class="title">
+      <h2>租房猎手 v{{version}}</h2>
+      <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
+      </div>
     </header>
     <main>
      <div class="select-box">
@@ -25,7 +28,7 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="onSubmit">立即查询</el-button>
-            <el-button>取消</el-button>
+            <el-button @click="reset">重置</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -46,6 +49,7 @@ export default {
   },
   data() {
     return {
+      version:"1.1.0",
       regionOption: [{ value: "西湖" },{ value: "滨江" }, { value: "下城" },{ value: "上城" }, { value: "江干" },  { value: "萧山" }, { value: "拱墅" }, { value: "余杭" }],
       form: {
         name: "",
@@ -63,7 +67,12 @@ export default {
     onSubmit() {
       // this.keyword = this.form.name.replace(' ','|');
       console.log(this.form.keyword);
-      this.keyword = this.form.keyword?this.form.keyword + '&' + this.form.region:this.form.region;
+      this.keyword = this.form.keyword !== ''?this.form.keyword + '&' + this.form.region:this.form.region;
+    },
+    reset(){
+      this.form.keyword = "";
+      this.form.region = "";
+      this.keyword="";
     }
   }
 };
@@ -79,21 +88,28 @@ export default {
 }
 
 header {
-  height: 60px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+    height: 70px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    box-shadow: 1px 1px 20px 0px #eee;
 }
-
-header h2 {
-  line-height: 60px;
+header .title{
+  width:300px;
+  margin:0 auto;
+}
+header .title h2 {
+  line-height: 40px;
   font-size: 20px;
   font-weight: bold;
 }
+header .title p{
+  text-align: right;
+}
 main {
   max-width: 1000px;
-  padding: 20px;
+  padding:0 20px;
   /* text-align: center; */
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .select-box {
   text-align: left;
@@ -113,5 +129,9 @@ main {
 }
 .back-to-top img{
   width:80%;
+}
+
+.el-table th>.cell{
+  text-align: center;
 }
 </style>

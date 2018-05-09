@@ -74,7 +74,7 @@ class Database {
     reg.forEach(function(pre){
       return and.push({"$or":[{name:{$regex:new RegExp(pre,'g')}},{content:{$regex:new RegExp(pre,'g')}}]})
     })
-    console.log(reg,JSON.stringify(and));
+    // console.log(reg,JSON.stringify(and));
     // { $and:[{"$or": [{ name: { $regex: "滨江" } }, { content: { $regex: "滨江" } }] },{"$or": [{ name: { $regex: "滨江" } }, { content: { $regex: "滨江" } }] }]}
     // this.model.find({ "$or": [{ name: { $regex: reg } }, { content: { $regex: reg } }] }, {
     this.model.find({$and:and}, {
@@ -85,7 +85,11 @@ class Database {
     });
   }
   getCount(reg,callback){
-    this.model.find({ "$or": [{ name: { $regex: reg } }, { content: { $regex: reg } }] }, {
+    var and = [];
+    reg.forEach(function(pre){
+      return and.push({"$or":[{name:{$regex:new RegExp(pre,'g')}},{content:{$regex:new RegExp(pre,'g')}}]})
+    })
+    this.model.find({$and:and}, {
       _id: 0
     }).count().exec(function (err, doc) {
       if (err) console.error(err);

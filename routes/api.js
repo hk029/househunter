@@ -19,7 +19,7 @@ router.get('/getData/:name', function (req, res) {
 })
 
 router.get('/getCount/:name', function (req, res) {
-  var regx = new RegExp(req.params.name,'g');
+  var regx = req.params.name.split('&');
   db.getCount(regx,doc=>{
     res.send({totalcount:doc});
   });

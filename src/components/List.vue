@@ -55,11 +55,11 @@
     </el-table-column>
   </el-table>
   <el-pagination
-      :page-size="30"
+  :page-size=30
+  :total="total"
       layout=" pager,jumper"
       :current-page="curpage"
     @current-change="pageChg"
-    :page-count="totalPage"
       >
   </el-pagination>
   </div>
@@ -77,45 +77,45 @@ export default {
       tags: [{ text: "豆瓣", value: "豆瓣" }, { text: "自如", value: "自如" }],
       tableData: [],
       curpage: 0,
-      totalPage:0,
+      total:50,
       pagesize: 30,
       curCount: 0,
       loading: true,
       hasNext: true,
       busy: false,
-      api:'/api'
+      api: "/api"
     };
   },
   methods: {
-    getCount(){
+    getCount() {
       var that = this;
-      var keyword = this.keyword || '.*';
-      this.$http
-        .get( this.api+"/getCount/" + keyword )
-        .then(response => {
-          var topics = [];
-          if (response.status === 200) {
-            that.totalPage = Math.ceil(response.data.totalcount/that.pagesize)-1;
-          }
-        });
+      var mykeyword = this.keyword || ".*";
+      this.$http.get(this.api + "/getCount/" + mykeyword).then(response => {
+
+        // console.log(response);
+        if (response.status === 200) {
+          that.total = Number(response.data.totalcount);
+        }
+      });
     },
-    getDate(type){
+    getDate(type) {
       var that = this;
-      var keyword = this.keyword || '.*';
+      var mykeyword = this.keyword || ".*";
       this.loading = true;
       this.$http
         .get(
-          this.api+"/getData/" +
-            keyword +
+          this.api +
+            "/getData/" +
+            mykeyword +
             "?start=" +
-            this.curpage * this.pagesize +
+            (this.curpage-1) * this.pagesize +
             "&pagesize=" +
             this.pagesize
         )
         .then(response => {
           var topics = [];
           if (response.status === 200) {
-            console.log(response);
+            // console.log(response);
             topics = response.data.data;
             that.curCount = Number(response.data.count);
             that.loading = true;
@@ -125,35 +125,30 @@ export default {
             }
             that.busy = false;
             //
-            if(type && type === 'append'){
+            if (type && type === "append") {
               that.tableData = that.tableData.concat(topics);
-            }
-            else {
+            } else {
               that.tableData = topics;
             }
           }
         });
     },
     updateList() {
-      this.curpage = 0;
+      this.curpage = 1;
       this.getCount();
       this.getDate();
     },
-    pageChg(p){
-        this.curpage = p;
+    pageChg(p) {
+      this.curpage = p;
       this.getDate();
     },
     filterTag(value, row) {
       return row.source === value;
-    },
-    filterHandler(value, row, column) {
-      const property = column["property"];
-      return row[property] === value;
     }
   },
   watch: {
-    keyword(from, to) {
-      console.log(to);
+    keyword(to, from) {
+      // console.log(from,to);
       this.updateList();
     }
   },
@@ -189,6 +184,6 @@ export default {
   width: 100px;
 }
 .list .el-pagination {
-    padding: 20px 5px;
+  padding: 20px 5px;
 }
 </style>
