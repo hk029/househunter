@@ -1,8 +1,8 @@
 # househunting
 
-> A Vue.js project
+这是一个租房信息整合的webapp，旨在方便用户查找想要的租房信息，避免了用户在豆瓣小组上瞎逛浪费时间
 
-## Build Setup
+# 安装方法
 
 ``` bash
 # install dependencies
@@ -17,5 +17,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
