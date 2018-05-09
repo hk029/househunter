@@ -5,7 +5,8 @@
 这是一个租房信息整合的webapp，旨在方便用户查找想要的租房信息，避免了用户在豆瓣小组上瞎逛浪费时间,你可以轻松根据多种筛选条件选择你想要的结果，比如：在滨江网易附近有独卫带阳台的房间。
 
 下面是操作演示
-![](./src/assents/preview.gif)
+
+![](https://github.com/hk029/househunter/blob/master/src/assets/preview.gif?raw=true)
 
 # 主要特点
 - 重要信息直观显示（图片+文字，避免豆瓣小组那种不直观的显示模式）
@@ -28,7 +29,7 @@ npm run build
 npm run build --report
 ```
 
-你在本地运行的话是没有数据的，你可以在src/components下List.vue文件，把data里的api改成'http://easyread.top:5000/api'使用。
+你在本地运行的话是没有数据的，你可以在src/components下List.vue文件，把data里的api改成`http://easyread.top:5000/api` 使用。
 
 ```
 src/components
