@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header>
+    <header class="top-head">
       <div class="title">
       <h2>租房猎手 v{{version}}</h2>
       <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
@@ -88,7 +88,7 @@ export default {
   color: #2c3e50;
 }
 
-header {
+header.top-head {
     height: 70px;
     background: #f9f9f9;
     border-bottom: 1px solid #eee;
