@@ -14,10 +14,13 @@
     >
     <template slot-scope="scope">
       <el-carousel height="200px" indicator-position="none">
-        <div v-if="scope.row.imgs">
+        <div v-if="scope.row.imgs.length > 0">
         <el-carousel-item v-for="item in scope.row.imgs" :key="JSON.stringify(item)">
            <a :href="item.url"><img :src="item.alt" style="width:100%;height:100%"></a>
         </el-carousel-item>
+        </div>
+        <div v-if="scope.row.imgs.length === 0">
+          <img src="../assets/default.jpg" style="width:100%;height:100%">
         </div>
       </el-carousel>
     </template>
@@ -86,7 +89,8 @@ export default {
       loading: true,
       hasNext: true,
       busy: false,
-      api: "/api"
+      // api: "/api"
+      api: "http://localhost:8000/api"
     };
   },
   methods: {
