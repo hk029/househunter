@@ -89,15 +89,15 @@ export default {
       loading: true,
       hasNext: true,
       busy: false,
-      // api: "/api"
-      api: "http://localhost:8000/api"
+      api: "/api"
+      // api: "http://localhost:8000/api"
     };
   },
   methods: {
     getCount() {
       var that = this;
       var mykeyword = this.keyword || ".*";
-      this.$http.get(this.api + "/getCount/" + mykeyword).then(response => {
+      this.$http.get(`${this.api}/getCount/${this.city}?keyword=${mykeyword}`).then(response => {
 
         // console.log(response);
         if (response.status === 200) {
@@ -111,20 +111,12 @@ export default {
       this.loading = true;
       this.tableData.splice(2,this.tableData.length-2);
       this.$http
-        .get(
-          this.api +
-            "/getData/" +
-            mykeyword +
-            "?start=" +
-            (this.curpage-1) * this.pagesize +
-            "&pagesize=" +
-            this.pagesize
-        )
+        .get( `${this.api}/getData/${this.city}?keyword=${mykeyword}&start=${(this.curpage-1) * this.pagesize}&pagesize=${this.pagesize}`)
         .then(response => {
           var topics = [];
             that.loading = false;
           if (response.status === 200) {
-            // console.log(response);
+            console.log(response);
             topics = response.data.data;
             that.curCount = Number(response.data.count);
             // 如果获取的数据count小于一页数目，说明是最后一页了
@@ -160,9 +152,12 @@ export default {
     keyword(to, from) {
       // console.log(from,to);
       this.updateList();
+    },
+    city(){
+      this.updateList();
     }
   },
-  props: ["keyword"]
+  props: ["keyword","city"]
 };
 </script>
 

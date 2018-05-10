@@ -35,7 +35,7 @@ function getPage(url) {
   })
 }
 
-function resolveDouban(json) {
+function resolveDouban(json,city) {
   var topics = [];
   // console.log(json);
   json.topics.forEach(element => {
@@ -46,7 +46,8 @@ function resolveDouban(json) {
       name: element.title,
       date: element.created,
       price: 0,
-      source: '豆瓣'
+      source: '豆瓣',
+      city:city
     };
     if (tmp.imgs) {
       tmp.imgs = tmp.imgs.map(im => {
@@ -74,12 +75,18 @@ function getDouban() {
     getPage('https://api.douban.com/v2/group/HZhome/topics?count=100&start=' + start)
       .then(data => {
         console.log('https://api.douban.com/v2/group/HZhome/topics?count=100&start=' + start, data.body.count)
-        resolveDouban(data.body);
+        resolveDouban(data.body,'hangzhou');
         getPage('https://api.douban.com/v2/group/145219/topics?count=100&start=' + start)
           .then(data => {
             console.log('https://api.douban.com/v2/group/145219/topics?count=100&start=' + start, data.body.count)
             start = (start + 100) % 1500;
-            resolveDouban(data.body);
+            resolveDouban(data.body,'hangzhou');
+            getPage('https://api.douban.com/v2/group/beijingzufang/topics?count=100&start=' + start)
+              .then(data => {
+                console.log('https://api.douban.com/v2/group/beijingzufang/topics?count=100&start=' + start, data.body.count)
+                start = (start + 100) % 1500;
+                resolveDouban(data.body,'beijing');
+              }).catch(err => console.error(err));
           }).catch(err => console.error(err));
       }).catch(err => console.error(err));
   }
@@ -90,10 +97,11 @@ function doJob() {
   setInterval(getDouban(), 120000)
   // 每天小时更新到主服务器上
   var rule = new schedule.RecurrenceRule();
-  rule.minute = 10;
+  rule.minute = 0;
   var j2 = schedule.scheduleJob(rule, function () {
     db.removeDul();
   });
 }
 
+db.removeDul();
 main();
