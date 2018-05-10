@@ -42,7 +42,9 @@ class Database {
       area:Object
     });
     this.names.forEach(name=>{
-      this.models[name] = mongoose.model(name,this.schema);
+      if(typeof this.models[name] === 'undefined'){
+        this.models[name] = mongoose.model(name,this.schema);
+      }
     })
     // this.model = mongoose.model(this.cur, this.schema);
     // // 所有的添加操作都是在tmp上操作（重复数据很多），只有在去重的时候，才把tmp的数据更新到主集合中
