@@ -136,8 +136,8 @@ export default {
       halfWidth:200,
       halfHeight:"150px",
       busy: false,
-      // api: "/api",
-      api: "http://localhost:8000/api"
+      api: "/api"
+      // api: "http://localhost:8000/api"
     };
   },
   methods: {

@@ -10,7 +10,6 @@
                 placeholder="请选择生活区域"
                 :options="form.areaOption"
                 v-model="form.area"
-                filterable
               ></el-cascader>
           </el-form-item>
           <el-form-item label="价位">
