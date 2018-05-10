@@ -163,7 +163,7 @@ export default {
           var topics = [];
             that.loading = false;
           if (response.status === 200) {
-            console.log(response);
+            // console.log(response);
             topics = response.data.data;
             that.curCount = Number(response.data.count);
             // 如果获取的数据count小于一页数目，说明是最后一页了

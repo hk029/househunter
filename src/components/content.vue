@@ -11,6 +11,10 @@ import List from "./List";
 export default {
   name: "Content",
   components: { SelectBox, List },
+  created(){
+    var path = location.hash.replace('#/','');
+    this.city = path;
+  },
   data() {
     return {
       keyword: "",

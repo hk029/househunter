@@ -27,6 +27,10 @@
 <script>
 export default {
   name: "App",
+  created(){
+    var path = location.hash.replace('#','');
+    this.city = this.cityname[path];
+  },
   data() {
     return {
       version: "1.2.0",
