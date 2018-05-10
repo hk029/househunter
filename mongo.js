@@ -97,6 +97,7 @@ class Database {
     reg.forEach(function(pre){
       return and.push({"$or":[{name:{$regex:new RegExp(pre,'g')}},{content:{$regex:new RegExp(pre,'g')}}]})
     })
+    console.log(JSON.stringify(and));
    this.models[city].find({$and:and}, {
       _id: 0
     }).skip(start).limit(max).sort({date:-1}).exec(function (err, doc) {

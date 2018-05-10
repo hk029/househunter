@@ -8,21 +8,41 @@ db.setSchema();
 
 const router = express.Router()
 
-router.get('/getData/:city', function (req, res) {
-  var city = req.params.city;
+
+
+router.get('/getData/hangzhou/:keyword', function (req, res) {
+  // var city = req.params.city;
   var query = req.query;
-  var regs = query.keyword.split('&');
+  var regs = req.params.keyword.split('&');
   var start = Number(query.start)||0;
   var pagesize = Number(query.pagesize)||30;
-  db.findAll(city,regs,start,pagesize,doc=>{
+  console.log(regs);
+  db.findAll('hangzhou',regs,start,pagesize,doc=>{
     res.send({count:doc.length,data:doc});
   });
 })
 
-router.get('/getCount/:city', function (req, res) {
-  var city = req.params.city;
-  var regx = req.query.keyword.split('&');
-  db.getCount(city,regx,doc=>{
+router.get('/getData/beijing/:keyword', function (req, res) {
+  // var city = req.params.city;
+  var query = req.query;
+  var regs = req.params.keyword.split('&');
+  var start = Number(query.start)||0;
+  var pagesize = Number(query.pagesize)||30;
+  console.log(regs);
+  db.findAll('beijing',regs,start,pagesize,doc=>{
+    res.send({count:doc.length,data:doc});
+  });
+})
+router.get('/getCount/beijing/:keyword', function (req, res) {
+  var regx = req.params.keyword.split('&');
+  db.getCount('beijing',regx,doc=>{
+    res.send({totalcount:doc});
+  });
+})
+
+router.get('/getCount/hangzhou/:keyword', function (req, res) {
+  var regx = req.params.keyword.split('&');
+  db.getCount('hangzhou',regx,doc=>{
     res.send({totalcount:doc});
   });
 })

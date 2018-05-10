@@ -144,7 +144,7 @@ export default {
     getCount() {
       var that = this;
       var mykeyword = this.keyword || ".*";
-      this.$http.get(`${this.api}/getCount/${this.city}?keyword=${mykeyword}`).then(response => {
+      this.$http.get(`${this.api}/getCount/${this.city}/${mykeyword}`).then(response => {
 
         // console.log(response);
         if (response.status === 200) {
@@ -158,7 +158,7 @@ export default {
       this.loading = true;
       this.tableData.splice(2,this.tableData.length-2);
       this.$http
-        .get( `${this.api}/getData/${this.city}?keyword=${mykeyword}&start=${(this.curpage-1) * this.pagesize}&pagesize=${this.pagesize}`)
+        .get( `${this.api}/getData/${this.city}/${mykeyword}?start=${(this.curpage-1) * this.pagesize}&pagesize=${this.pagesize}`)
         .then(response => {
           var topics = [];
             that.loading = false;

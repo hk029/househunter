@@ -29,6 +29,7 @@ export default {
   name:"SelectBox",
   created(){
     this.updateArea()
+
   },
    data() {
     return {
@@ -40,8 +41,9 @@ export default {
         price:"",
         keyword:"",
         area:[],
-        areaOption:[]
+        areaOption:[],
       },
+      first:true,
       api: "/api"
       // api: "http://localhost:8000/api"
     };
@@ -57,18 +59,38 @@ export default {
               that.form.areaOption= [{label:'没有获取到数据',value:'notfound'}]
             }else{
               that.form.areaOption= response.data.area;
+              if(that.first){
+                that.getLocalData();
+              }
             }
           }
       });
     },
+    setLocalData(){
+      localStorage.setItem('search_data',JSON.stringify({
+        city:this.city,
+        keyword:this.form.keyword,
+        area:this.form.area
+      }));
+    },
+    getLocalData(){
+      var data = JSON.parse(localStorage.getItem('search_data'));
+      console.log(data);
+      // 如果存储的数据是当前城市的数据 则更新
+      if(data && data.city === this.city){
+        this.form.keyword = data.keyword;
+        this.form.area = data.area;
+        this.onSubmit()
+      }
+    },
     onSubmit(){
-      console.log(this.form.area)
+      // console.log(this.form.area)
       var area = this.form.area && this.form.area[this.form.area.length-1];
       area = area&&area.replace("站","");
       var keyword = this.form.keyword !== "" ? this.form.keyword + "&" + area : area;
+      this.setLocalData();
+      keyword = keyword.replace('不限','');
       console.log(keyword)
-
-
       this.$emit('submit',keyword);
     },
     reset(){
