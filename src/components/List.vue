@@ -244,7 +244,7 @@ export default {
   .myico{
        background: #23d12b;
     border-radius: 2px;
-    font-size: 6px;
+    font-size: 8px;
     color: #fff;
     padding: 1px 2px;
     font-style: normal;
