@@ -155,8 +155,8 @@ class Database {
       }
       setAgg('beijing')
       setAgg('hangzhou')
+      this.delDoc({});
     }
-          // that.delDoc({});
 }
 
 
