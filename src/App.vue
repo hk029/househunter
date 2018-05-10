@@ -93,13 +93,7 @@ main {
   /* text-align: center; */
   margin: 10px auto;
 }
-.select-box {
-  text-align: left;
-  padding: 10px;
-  /* width: 100%; */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+
 .back-to-top {
   position: fixed;
   right: 60px;
@@ -129,5 +123,17 @@ main {
   header .title h2{
     line-height: 60px;
   }
+  .back-to-top {
+  position: fixed;
+  right: 10px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  /* border:solid 1px #eee; */
+  cursor: pointer;
+}
+.back-to-top img {
+  width: 80%;
+}
 }
 </style>
