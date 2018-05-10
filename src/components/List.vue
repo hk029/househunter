@@ -242,12 +242,13 @@ export default {
 
 @media screen and (max-width: 980px) {
   .myico{
-    background:#23D12B;
+       background: #23d12b;
     border-radius: 2px;
-    font-size: 8px;
-    color:#fff;
-    padding:2px;
-
+    font-size: 6px;
+    color: #fff;
+    padding: 1px 2px;
+    font-style: normal;
+    margin-right: 4px;
   }
 
 }
