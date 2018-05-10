@@ -1,8 +1,9 @@
 <template>
        <div class="select-box">
-        <el-form ref="form" :model="form" label-width="100px">
+        <!-- <el-form ref="form" :model="form" label-width="70px"> -->
+        <el-form ref="form" :model="form" >
           <el-form-item label="关键词">
-            <el-input v-model="form.keyword" placeholder="关键词可以用&(并且)和|(或)分隔，例如：阳台&独卫|主卧&步行街，表示需要有阳台+独卫或主卧+步行街"></el-input>
+            <el-input v-model="form.keyword" placeholder="阳台&独卫|主卧，表示需要有阳台+独卫或主卧"></el-input>
           </el-form-item>
           <el-form-item label="活动区域">
              <el-cascader
@@ -88,6 +89,32 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+.select-box {
+  text-align: left;
+  padding: 22px 10px 0px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.el-form-item__content{
+    margin-left: 70px;
+  }
+  .select-box .el-form-item__label{
+    width: 70px;
+  }
+@media screen and (max-width: 980px) {
+  .select-box .el-input__inner{
+  font-size: 10px;
+  }
+  .el-form-item__content{
+    margin-left: 60px;
+  }
+  .select-box .el-form-item__label{
+    width: 60px;
+    font-size: 12px;
+  }
+  .select-box .el-form-item__content{
+    /* text-align: center; */
+  }
+}
 </style>

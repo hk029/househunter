@@ -6,7 +6,8 @@
     element-loading-spinner="el-icon-loading"
 
     :data="tableData"
-    style="width: 100%;text-align:center">
+    style="width: 100%;text-align:center"
+    v-if="!small">
     <el-table-column
       prop="alt"
       label="图片"
@@ -60,7 +61,45 @@
       </template>
     </el-table-column>
   </el-table>
+
+ <el-table
+     v-loading="loading"
+     element-loading-text="拼命加载中"
+    element-loading-spinner="el-icon-loading"
+
+    :data="tableData"
+    style="width: 100%;text-align:center"
+    v-if="small">
+    <el-table-column
+      prop="alt"
+      label="图片"
+      width="halfWidth"
+    >
+    <template slot-scope="scope">
+      <el-carousel height="150px" indicator-position="none">
+        <div v-if="scope.row.imgs.length > 0">
+        <el-carousel-item v-for="item in scope.row.imgs" :key="JSON.stringify(item)" style="height:150px">
+           <a :href="item.url"><img :src="item.alt" style="width:100%"></a>
+        </el-carousel-item>
+        </div>
+        <div v-if="scope.row.imgs.length === 0">
+          <img src="../assets/default.jpg" style="width:100%">
+        </div>
+      </el-carousel>
+    </template>
+    </el-table-column>
+    <el-table-column
+      label="房子情况"
+      >
+     <template slot-scope="scope">
+      <a :href="scope.row.url">{{scope.row.name}}</a>
+      <p>发帖时间：{{scope.row.date}}</p>
+    </template>
+    </el-table-column>
+  </el-table>
+
   <el-pagination
+  small="small"
   :page-size=20
   :total="total"
       layout=" pager,jumper"
@@ -77,6 +116,11 @@ export default {
   created() {
     var that = this;
     this.updateList();
+    if(window.innerWidth<900){
+      this.small = true;
+      this.halfWidth = window.innerWidth/2;
+      this.halfHeight = this.halfWidth*0.75 + 'px'
+    }
   },
   data() {
     return {
@@ -87,10 +131,13 @@ export default {
       pagesize: 20,
       curCount: 0,
       loading: true,
+      small:false,
       hasNext: true,
+      halfWidth:200,
+      halfHeight:"150px",
       busy: false,
-      api: "/api"
-      // api: "http://localhost:8000/api"
+      // api: "/api",
+      api: "http://localhost:8000/api"
     };
   },
   methods: {
@@ -190,5 +237,11 @@ export default {
 }
 .list .el-pagination {
   padding: 20px 5px;
+}
+
+
+@media screen and (max-width: 980px) {
+
+
 }
 </style>

@@ -4,10 +4,30 @@ import Vue from 'vue'
 import App from './App'
 import css from './reset.css'
 import router from './router'
-import ElementUI from 'element-ui';
+import { Button, Select,Table,Cascader,Loading,Dropdown,
+  DropdownMenu,
+  DropdownItem,Form,
+  FormItem,Input,TableColumn,Pagination,Carousel,
+  CarouselItem } from 'element-ui';
+// import ElementUI from 'element-ui';
 import axios from 'axios';
 import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+Vue.use(Button);
+Vue.use(Select);
+Vue.use(Table);
+Vue.use(Cascader);
+Vue.use(Loading);
+Vue.use(Dropdown);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Input);
+Vue.use(TableColumn);
+Vue.use(Pagination);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
+
 Vue.prototype.$http = axios;
 Vue.config.productionTip = false
 /* eslint-disable no-new */

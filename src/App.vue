@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header class="top-head">
+      <div class="mid">
       <el-dropdown class="city">
        <span class="el-dropdown-link"><i class="el-icon-location-outline"></i>{{city}}<i class="el-icon-arrow-down el-icon--right"></i> </span>
         <el-dropdown-menu slot="dropdown">
@@ -11,14 +12,15 @@
       <h2>租房猎手 v{{version}}</h2>
       <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
       </div>
+      </div>
     </header>
-    <main>
+    <main class="mid">
       <router-view/>
     </main>
     <div class="back-to-top" @click="toTop">
       <img src="./assets/rocket.svg" alt="">
     </div>
-    <a href="https://github.com/hk029/househunter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./assets/forkme.png" alt="Fork me on GitHub"></a>
+    <!-- <a href="https://github.com/hk029/househunter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./assets/forkme.png" alt="Fork me on GitHub"></a> -->
   </div>
 </template>
 
@@ -55,7 +57,10 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+.mid {
+max-width: 1000px;
+margin: 10px auto;
+}
 header.top-head {
   height: 70px;
   background: #f9f9f9;
@@ -75,8 +80,8 @@ width: 200px;
 }
 
 header .title h2 {
-  line-height: 40px;
   font-size: 20px;
+  line-height: 40px;
   font-weight: bold;
 }
 header .title p {
@@ -110,5 +115,19 @@ main {
 
 .el-table th > .cell {
   text-align: center;
+}
+
+
+@media screen and (max-width: 980px) {
+  .title p{
+    display: none;
+  }
+
+  header.top-head {
+    height: 60px;
+  }
+  header .title h2{
+    line-height: 60px;
+  }
 }
 </style>
