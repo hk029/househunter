@@ -92,7 +92,7 @@
       label="房子情况"
       >
      <template slot-scope="scope">
-      <a :href="scope.row.url">{{scope.row.name}}</a>
+      <i class="myico">{{scope.row.source}}</i><a :href="scope.row.url">{{scope.row.name}}</a>
       <p>发帖时间：{{scope.row.date}}</p>
     </template>
     </el-table-column>
@@ -241,7 +241,14 @@ export default {
 
 
 @media screen and (max-width: 980px) {
+  .myico{
+    background:#23D12B;
+    border-radius: 2px;
+    font-size: 8px;
+    color:#fff;
+    padding:2px;
 
+  }
 
 }
 </style>
