@@ -64,7 +64,7 @@ export default {
     onSubmit(){
       console.log(this.form.area)
       var area = this.form.area && this.form.area[this.form.area.length-1];
-      area = area.replace("站","");
+      area = area&&area.replace("站","");
       var keyword = this.form.keyword !== "" ? this.form.keyword + "&" + area : area;
       console.log(keyword)
 
