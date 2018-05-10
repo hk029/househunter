@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <select-box @submit="submit" :city="city"></select-box>
+    <select-box @submit="submit" :city="city" @reset="reset"></select-box>
     <list :keyword="keyword" :city="city"></list>
   </div>
 </template>
@@ -25,8 +25,8 @@ export default {
     submit(word) {
       this.keyword = word;
     },
-    getData(){
-
+    reset(){
+      this.keyword="";
     }
   },
   watch: {

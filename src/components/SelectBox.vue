@@ -75,6 +75,7 @@ export default {
       this.form.keyword = "";
       this.form.area = [];
       this.keyword="";
+      this.$emit('reset');
     }
   },
   watch: {
