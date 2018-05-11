@@ -20,7 +20,7 @@
     <div class="back-to-top" @click="toTop">
       <img src="./assets/rocket.svg" alt="">
     </div>
-    <!-- <a href="https://github.com/hk029/househunter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./assets/forkme.png" alt="Fork me on GitHub"></a> -->
+    <a class="forkme" href="https://github.com/hk029/househunter"><img style="position: absolute; top: 0; left: 0; border: 0;" src="./assets/forkme.png" alt="Fork me on GitHub"></a>
   </div>
 </template>
 
@@ -116,7 +116,7 @@ main {
 }
 
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1150px) {
   .title p{
     display: none;
   }
@@ -136,8 +136,8 @@ main {
   /* border:solid 1px #eee; */
   cursor: pointer;
 }
-.back-to-top img {
-  width: 80%;
-}
+  .forkme{
+    display: none;
+  }
 }
 </style>
