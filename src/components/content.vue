@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content mid">
     <select-box @submit="submit" :city="city" @reset="reset"></select-box>
     <list :keyword="keyword" :city="city"></list>
   </div>
@@ -40,5 +40,7 @@ export default {
 </script>
 
 <style scoped>
-
+.content{
+  margin-top: 20px;
+}
 </style>

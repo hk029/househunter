@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import css from './reset.css'
+import './entry.css'
 import router from './router'
 // import { Button, Select,Table,Cascader,Loading,Dropdown,
 //   DropdownMenu,

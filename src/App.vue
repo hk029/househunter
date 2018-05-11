@@ -2,19 +2,23 @@
   <div id="app">
     <header class="top-head">
       <div class="mid">
+        <div class="right-nav">
+   <a href="/#/update" class="a-aboutme">更新日志</a> &nbsp | &nbsp
+   <a href="/#/aboutme" class="a-aboutme">关于我&投食</a> &nbsp| &nbsp
       <el-dropdown class="city">
        <span class="el-dropdown-link"><i class="el-icon-location-outline"></i>{{city}}<i class="el-icon-arrow-down el-icon--right"></i> </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item v-for="item in cities" :key="item.value"><a :href="item.url">{{item.value}}</a></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+        </div>
       <div class="title">
-      <h2>租房猎手 v{{version}}</h2>
+      <a href="/#/"><h2>租房猎手 v{{version}}</h2></a>
       <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
       </div>
       </div>
     </header>
-    <main class="mid">
+    <main>
       <router-view/>
     </main>
     <div class="back-to-top" @click="toTop">
@@ -63,7 +67,8 @@ export default {
 }
 .mid {
 max-width: 1000px;
-margin: 10px auto;
+  /* text-align: center; */
+  margin: 0 auto;
 }
 header.top-head {
   height: 70px;
@@ -72,13 +77,23 @@ header.top-head {
   box-shadow: 1px 1px 20px 0px #eee;
   position: relative;
 }
-header .city{
-    position: absolute;
-    top: 25px;
-    right: 20px;
+header{
+  line-height: 70px;
 }
+
+header .right-nav{
+  float: right;
+  font-size: 14px;
+  /* display: inline-block; */
+}
+header .right-nav>*{
+  display: inline-block;
+  /* margin-right: 10px; */
+  color: #606266;
+}
+
 header .title {
-width: 200px;
+    width: 200px;
     height: 70px;
     float: left;
 }
@@ -90,13 +105,9 @@ header .title h2 {
 }
 header .title p {
   text-align: right;
+    line-height: 10px;
 }
-main {
-  max-width: 1000px;
-  padding: 0 20px;
-  /* text-align: center; */
-  margin: 10px auto;
-}
+
 
 .back-to-top {
   position: fixed;
@@ -121,6 +132,9 @@ main {
     display: none;
   }
 
+header{
+  line-height: 60px;
+}
   header.top-head {
     height: 60px;
   }

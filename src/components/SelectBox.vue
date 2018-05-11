@@ -12,10 +12,10 @@
                 v-model="form.area"
               ></el-cascader>
           </el-form-item>
-          <el-form-item label="价位">
+          <!-- <el-form-item label="价位">
             <el-select v-model="form.price" placeholder="请选择价位">
             </el-select>
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item>
             <el-button type="primary" @click="onSubmit">立即查询</el-button>
             <el-button @click="reset">重置</el-button>
