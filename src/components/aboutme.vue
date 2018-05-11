@@ -107,7 +107,6 @@ export default {
       font-size: 38px;
       line-height: 200px;
       color: white;
-      width: 100%;
       font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, STHeiti, WenQuanYi Micro Hei, Helvetica, Arial;
     }
 
