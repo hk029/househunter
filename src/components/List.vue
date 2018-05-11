@@ -92,7 +92,7 @@
       label="房子情况"
       >
      <template slot-scope="scope">
-      <i class="myico">{{scope.row.source}}</i><a :href="scope.row.url">{{scope.row.name}}</a>
+      <i class="myico">{{scope.row.source}}</i><a :href="scope.row.url" target="_blank">{{scope.row.name}}</a>
       <p>发帖时间：{{scope.row.date}}</p>
     </template>
     </el-table-column>

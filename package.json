@@ -1,5 +1,5 @@
 {
-  "name": "househunting",
+  "name": "househunter",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "hk029 <hk2291976@hotmail.com>",
@@ -27,7 +27,6 @@
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.1",
-    "babel-plugin-component": "^1.1.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
