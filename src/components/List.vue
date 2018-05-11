@@ -30,7 +30,7 @@
       label="标题"
       width="250">
      <template slot-scope="scope">
-      <a :href="scope.row.url">{{scope.row.name}}</a>
+      <a :href="scope.row.url" target="_blank">{{scope.row.name}}</a>
       <p>发帖时间：{{scope.row.date}}</p>
     </template>
     </el-table-column>
