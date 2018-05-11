@@ -13,7 +13,7 @@
       </el-dropdown>
         </div>
       <div class="title">
-      <a href="/#/"><h2>租房猎手 v{{version}}</h2></a>
+      <a href="/#/"><h2>租房猎手</h2></a>
       <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
       </div>
       </div>
@@ -137,6 +137,9 @@ header{
 }
   header.top-head {
     height: 60px;
+  }
+  header .title{
+    width: 100px;
   }
   header .title h2{
     line-height: 60px;
