@@ -10,12 +10,14 @@ class Database {
     this.model0 = undefined;
     // this.models.tmp = undefined;
     this.model_area = undefined;
+    this.model_keywords = undefined;
     this.models = [];
     this.names = ['beijing','hangzhou','tmp'];
     this.tmp = tmp||'housetmp' ;
     this.cur = 'house1';
-    this.beijing = 'beijing'
-    this.area = 'area'
+    this.beijing = 'beijing';
+    this.area = 'area';
+    this.keywords = 'keywords';
   }
   openDb(address, db, option) {
     var option = option; //mongodb连接
@@ -50,6 +52,10 @@ class Database {
     // // 所有的添加操作都是在tmp上操作（重复数据很多），只有在去重的时候，才把tmp的数据更新到主集合中
     // this.models.tmp = mongoose.model(this.tmp, this.schema);
     this.model_area = mongoose.model(this.area, this.schema_area);
+    this.model_keywords = mongoose.model(this.keywords, new mongoose.Schema({
+      keywords:String,
+      count:Number
+    }))
     return this.schema;
   }
 
@@ -66,6 +72,13 @@ class Database {
       // console.log(doc);
     }).catch(err => console.error(err));
   }
+
+  saveKeywords(docs){
+    this.model_keywords.create(docs).then(doc => {
+      // console.log(doc);
+    }).catch(err => console.error(err));
+  }
+
   saveArea(docs){
     this.model_area.create(docs).then(doc => {
       // console.log(doc);
@@ -224,3 +237,4 @@ console.log('succ')
 }
 
 // saveDoc();
+

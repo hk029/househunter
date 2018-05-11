@@ -1,5 +1,6 @@
 const express = require('express')
 const database = require('../mongo.js').Database;
+const fs = require('fs');
 
 var db = new database();
 
@@ -9,6 +10,8 @@ db.setSchema();
 const router = express.Router()
 
 
+var keywords = JSON.parse(fs.readFileSync('./keywords.json'));
+var times = 0;
 
 router.get('/getData/hangzhou/:keyword', function (req, res) {
   // var city = req.params.city;
@@ -28,13 +31,25 @@ router.get('/getData/beijing/:keyword', function (req, res) {
   var regs = req.params.keyword.split('&');
   var start = Number(query.start)||0;
   var pagesize = Number(query.pagesize)||30;
-  console.log(regs);
+  // console.log(regs);
   db.findAll('beijing',regs,start,pagesize,doc=>{
     res.send({count:doc.length,data:doc});
   });
 })
+
 router.get('/getCount/beijing/:keyword', function (req, res) {
   var regx = req.params.keyword.split('&');
+  times = (times + 1)%100;
+  regx.forEach(key => {
+    if(keywords[key]){
+      keywords[key]++;
+    } else {
+      keywords[key] = 1;
+    }
+  });
+  if(times%10 === 0){
+    fs.writeFile('../keywords.json',JSON.stringify(keywords))
+  }
   db.getCount('beijing',regx,doc=>{
     res.send({totalcount:doc});
   });
@@ -42,6 +57,17 @@ router.get('/getCount/beijing/:keyword', function (req, res) {
 
 router.get('/getCount/hangzhou/:keyword', function (req, res) {
   var regx = req.params.keyword.split('&');
+  times = (times + 1)%100;
+  regx.forEach(key => {
+    if(keywords[key]){
+      keywords[key]++;
+    } else {
+      keywords[key] = 1;
+    }
+  });
+  if(times%10 === 0){
+    fs.writeFile('./keywords.json',JSON.stringify(keywords))
+  }
   db.getCount('hangzhou',regx,doc=>{
     res.send({totalcount:doc});
   });
