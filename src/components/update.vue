@@ -8,6 +8,12 @@
     </div>
     <div class="container">
       <div class="entry">
+        <h3>v1.2.1</h3>
+<ul>
+<li>增加了<strong>最后一次筛选条件本地缓存</strong>功能，方便用户查找上次的内容</li>
+<li>增加了关于我，更新日志页面</li>
+<li>跳转地址改成在新页跳转</li>
+</ul>
        <h3>v1.2.0</h3>
 <ul>
 <li>增加了<strong>北京</strong>的数据</li>
