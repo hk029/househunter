@@ -33,6 +33,10 @@ export default new Router({
       path: '/update',
       name: 'Update',
       component: update
+    },
+    {
+      path:"*",
+      redirect:'/hz'
     }
   ]
 })
