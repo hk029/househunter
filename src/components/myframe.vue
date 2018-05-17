@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       tabs: ["5i5j"],
-      src: "https://hz.5i5j.com/zufang/n14/",
+      src: "https://hz.5i5j.com/zufang/",
       title: "5i5j",
       activeName: "豆瓣小组"
     };
@@ -45,9 +45,8 @@ export default {
           if (this.price.min) {
             this.src = this.src + `b${this.price.min}e${this.price.max}/`;
           }
-          if(dist["5i5j"][this.city][area]){
+          if(!dist["5i5j"][this.city][area]){
             this.src = this.src + `_${this.area}`;
-
           }
           console.log(this.src);
           break;
