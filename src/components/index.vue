@@ -6,7 +6,7 @@
 export default {
  name:"Index",
  created(){
-   window.location.href="#/hangzhou"
+   window.location.href="#/hz"
  }
 }
 </script>

@@ -38,8 +38,8 @@ export default {
   data() {
     return {
       version: "1.2.0",
-      cities:[{value:"杭州",url:"/#/hangzhou"},{value:"北京",url:"/#/beijing"}],
-      cityname:{'/beijing':'北京','/hangzhou':'杭州'},
+      cities:[{value:"杭州",url:"/#/hz"},{value:"北京",url:"/#/bj"}],
+      cityname:{'/bj':'北京','/hz':'杭州'},
       city:"杭州"
     };
   },
@@ -91,7 +91,16 @@ header .right-nav>*{
   /* margin-right: 10px; */
   color: #606266;
 }
-
+.select-box .el-collapse{
+  border:none;
+}
+.select-box .el-collapse-item:last-child {
+    margin-bottom: 0;
+}
+.select-box .el-collapse-item__header{
+  text-align: center;
+  font-size: 16px;
+}
 header .title {
     width: 200px;
     height: 70px;
@@ -125,7 +134,11 @@ header .title p {
 .el-table th > .cell {
   text-align: center;
 }
-
+iframe{
+  width: 100%;
+  max-width:1000px;
+  height: 400px;
+}
 
 @media screen and (max-width: 1150px) {
   .title p{

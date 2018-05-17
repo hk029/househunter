@@ -116,6 +116,9 @@ export default {
   created() {
     var that = this;
     this.updateList();
+    if(this.debug){
+      this.api = "http://localhost:8000/api"
+    }
     if(window.innerWidth<900){
       this.small = true;
       this.halfWidth = window.innerWidth/2;
@@ -137,7 +140,6 @@ export default {
       halfHeight:"150px",
       busy: false,
       api: "/api"
-      // api: "http://localhost:8000/api"
     };
   },
   methods: {
@@ -204,15 +206,17 @@ export default {
       this.updateList();
     }
   },
-  props: ["keyword","city"]
+  props: ["keyword","city","debug"]
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .list {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   border-radius: 5px;
+  height: 500px;
+  overflow: scroll;
   border: 1px solid #eee;
 }
 .list .el-table th > .cell {

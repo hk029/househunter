@@ -15,12 +15,12 @@ export default new Router({
       component: index
     },
     {
-      path: '/beijing',
+      path: '/bj',
       name: 'Content',
       component: content
     },
     {
-      path: '/hangzhou',
+      path: '/hz',
       name: 'Content',
       component: content
     },
