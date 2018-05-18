@@ -172,6 +172,8 @@ export default {
       this.form.keyword = "";
       this.form.area = [];
       this.keyword = "";
+      this.form.price_min="",
+      this.form.price_max="",
       this.$emit("reset");
     }
   },
