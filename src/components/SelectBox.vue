@@ -107,7 +107,9 @@ export default {
       this.$http.get(this.api + "/getArea/" + this.city).then(response => {
         var topics = [];
         if (response.status === 200) {
-          console.log(response);
+          if(that.debug){
+            console.log(response);
+          }
           if (response.data === "") {
             that.form.areaOption = [
               { label: "没有获取到数据", value: "notfound" }
@@ -133,7 +135,9 @@ export default {
     },
     getLocalData() {
       var data = JSON.parse(localStorage.getItem("search_data"));
-      console.log(data);
+      if(this.debug){
+        console.log(data);
+      }
       // 如果存储的数据是当前城市的数据 则更新
       if (data && data.city === this.city) {
         this.form.keyword = data.keyword;
