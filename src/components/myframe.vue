@@ -10,8 +10,13 @@
    <el-tab-pane name="58同城"  label="58同城">
       <div class="msg">
         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526631778264&di=8b5e79c3a51322c4aca89f7657cfda14&imgtype=0&src=http%3A%2F%2Fwww.cnhuadong.net%2Fuploadfiles%2Fimages%2F2016-3-26%2F2016326112320jpg57993.jpg" alt="">
-      <p>抱歉，由于58租房的网站限制,没办法直接给您显示租房信息,您可以点击以下按钮跳转到对应筛选条件界面</p>
-      <p></p>
+      <p style="color:red">抱歉，由于58租房的网站限制,没办法直接给您显示租房信息,您可以点击以下按钮跳转到对应筛选条件界面</p>
+      当前筛选条件:
+      <ul>
+        <li v-if="this.price.min">价格:{{this.price.min}} - {{this.price.max}}</li>
+        <li v-if="this.area">区域:{{this.area}}</li>
+        <li v-if="!this.area">区域:不限</li>
+      </ul>
       <a :href="href" target="_blank"><el-button>点击跳转</el-button></a>
 
       </div>
@@ -127,17 +132,30 @@ export default {
 }
 .myframe p {
   line-height: 25px;
-  text-align: left;
   margin:10px 0;
 
+}
+.myframe .msg>*{
+  text-align: left;
 }
 .myframe .msg{
   width: 80%;
   margin:0 auto;
   padding:20px 0;
 }
+.myframe .msg ul li{
+  margin:10px 0;
+
+}
+.myframe .msg ul{
+  padding:0 30px;
+
+}
+
 .myframe .msg img{
+  text-align: center;
   width: 100%;
+  max-width: 400px;
   margin:10px 0 10px;
 }
 </style>
