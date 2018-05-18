@@ -7,7 +7,7 @@
     <el-tab-pane v-for="tab in tabs" :key="tab" :name="tab"  :label="tab" @tab-click="handleClick">
       <iframe v-if="src" :src="src" frameborder="0"></iframe>
     </el-tab-pane>
-   <el-tab-pane name="58租房"  label="58租房">
+   <!-- <el-tab-pane name="58租房"  label="58租房">
       <div class="msg">
         <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1526631778264&di=8b5e79c3a51322c4aca89f7657cfda14&imgtype=0&src=http%3A%2F%2Fwww.cnhuadong.net%2Fuploadfiles%2Fimages%2F2016-3-26%2F2016326112320jpg57993.jpg" alt="">
       <p>抱歉，由于58租房的网站限制,没办法直接给您显示租房信息,您可以点击以下按钮跳转到对应筛选条件界面</p>
@@ -15,7 +15,7 @@
       <a :href="src" target="_blank"><el-button>点击跳转</el-button></a>
 
       </div>
-    </el-tab-pane>
+    </el-tab-pane> -->
 
   </el-tabs>
     <!-- <h3 class="frame-title">{{title}}</h3> -->
@@ -35,7 +35,7 @@ export default {
   components: { List },
   data() {
     return {
-      tabs: ["5i5j"],
+      tabs: ["5i5j","58租房"],
       src: "",
       title: "5i5j",
       activeName: "豆瓣小组"
