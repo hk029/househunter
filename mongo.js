@@ -163,6 +163,9 @@ class Database {
       _id: 0
     }).exec(callback)
   }
+  delArea(){
+    this.model_area.remove({},function(err){});
+  }
 
   removeDul() {
     var that = this;
@@ -252,7 +255,7 @@ function saveDoc() {
     'bj': '北京',
     'hz': '杭州'
   }
-
+  db.delArea();
   console.log(de);
   function getd(data) {
     var docs = [];

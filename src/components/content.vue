@@ -24,8 +24,8 @@ export default {
       keyword: "",
       city:"hz",
       area:"",
-      // debug:true,
-      debug:false,
+      debug:true,
+      // debug:false,
       price:{min:0,max:10000}
     };
   },

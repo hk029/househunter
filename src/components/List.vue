@@ -146,6 +146,7 @@ export default {
     getCount() {
       var that = this;
       var mykeyword = this.keyword || ".*";
+      mykeyword = mykeyword.replace('区','');
       this.$http.get(`${this.api}/getCount/${this.city}/${mykeyword}`).then(response => {
 
         // console.log(response);

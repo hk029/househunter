@@ -26,8 +26,8 @@ export default {
   components: { List },
   data() {
     return {
-      tabs: ["5i5j"],
-      src: "https://hz.5i5j.com/zufang/",
+      tabs: ["5i5j","58租房"],
+      src: "",
       title: "5i5j",
       activeName: "豆瓣小组"
     };
@@ -51,6 +51,19 @@ export default {
           console.log(this.src);
           break;
         case "58租房":
+          var url = `http://${this.city}.58.com`;
+          var area = this.area || "全部";
+          console.log(dist);
+          if (dist["58租房"][this.city][area]) {
+            this.src = url + dist["58租房"][this.city][area];
+          }
+          if (this.price.min) {
+            this.src = this.src + `?minprice=${this.price.min}_${this.price.max}/`;
+          }
+          if(!dist["58租房"][this.city][area]){
+            this.src = this.src + `?key=${this.area}`;
+          }
+          console.log(this.src);
           break;
       }
     },

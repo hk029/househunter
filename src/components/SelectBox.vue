@@ -190,10 +190,10 @@ export default {
   border-radius: 5px;
 }
 .el-form-item__content {
-  margin-left: 75px;
+  margin-left: 85px;
 }
 .select-box .el-form-item__label {
-  width: 75px;
+  width: 85px;
 }
 @media screen and (max-width: 980px) {
   .select-box .el-input__inner {
