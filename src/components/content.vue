@@ -37,6 +37,8 @@ export default {
     },
     reset(){
       this.keyword="";
+      this.price = {min:"",max:""},
+      this.area = "";
     }
   },
   watch: {
