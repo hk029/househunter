@@ -8,6 +8,10 @@
     </div>
     <div class="container">
       <div class="entry">
+        <h3>v1.3.1</h3>
+<ul>
+<li>加入了58同城租房信息</li>
+</ul>
         <h3>v1.3.0</h3>
 <ul>
 <li>调整了整体布局，加入了其他平台信息（5i5j)</li>
