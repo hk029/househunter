@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>易有方——租房猎手</title>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.3.7/lib/theme-chalk/index.css">
-    <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon"/>
-  </head>
-  <body>
-    <div id="app"></div>
-<script src="https://lib.baomitu.com/vue/2.5.17-beta.0/vue.min.js"></script>
 
-<script src="https://lib.baomitu.com/axios/0.18.0/axios.min.js"></script>
-<script src="https://unpkg.com/element-ui@2.3.7/lib/index.js"></script>
-<script>
-  var _hmt = _hmt || [];
-  (function() {
-    var hm = document.createElement("script");
-    hm.src = "https://hm.baidu.com/hm.js?36ae4594d259b44cffc74abbca187778";
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(hm, s);
-  })();
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>易有方——租房猎手</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui@2.3.7/lib/theme-chalk/index.css">
+  <link rel="shortcut icon" href="./static/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://lib.baomitu.com/vue/2.5.17-beta.0/vue.min.js"></script>
+
+  <script src="https://lib.baomitu.com/axios/0.18.0/axios.min.js"></script>
+  <script src="https://unpkg.com/element-ui@2.3.7/lib/index.js"></script>
+  <script>
+     console.log(location.origin.indexOf('eyoufang'));
+    if (location.origin.indexOf('eyoufang') < 0) {
+      // console.log('haha');
+      location.href = 'http://eyoufang.cn' + location.hash;
+      // this.$message({
+      //   message: h('p', null, [
+      //     h('span', null, '内容可以是 '),
+      //     h('i', {
+      //       style: 'color: teal'
+      //     }, 'VNode')
+      //   ])
+      // });
+      // setTimeout(function () {
+      //   location.href = 'http://eyoufang.cn/#' + path;
+      // }, 3000)
+    }
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?36ae4594d259b44cffc74abbca187778";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+
   </script>
 
-  </body>
+</body>
 
 </html>

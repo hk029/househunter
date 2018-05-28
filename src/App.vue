@@ -34,6 +34,7 @@ export default {
   created(){
     var path = location.hash.replace('#','');
     this.city = this.cityname[path];
+
   },
   data() {
     return {
