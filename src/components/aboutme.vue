@@ -71,7 +71,7 @@
           <li>电话：我主人说，给了就打死我</li>
           <li>邮箱：<a href="mailto:hk2291976@hotmail.com">hk2291976@hotmail.com</a></li>
           <li>github: <a href="github.com/hk029">github.com/hk029</a></li>
-          <li>个人网站：<a href="voidsky.cc">voidsky.cc</a> (他都好久没在上面更新了)</li>
+          <li>个人网站：新站点正在部署中... (他都好久没在上面更新了)</li>
         </ul>
       </div>
     </div>
