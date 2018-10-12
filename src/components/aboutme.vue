@@ -9,11 +9,11 @@
     <div class="container">
       <div class="entry">
         <h2>我是谁？</h2>
-        <p>我的主人是一名刚毕业的研究生程序猿，他在找房阶段忍无可忍，一气之下创造了
+        <p>我的主人是一名刚毕业的研究生程序猿(现网易云音乐的一名员工)，他在找房阶段忍无可忍，一气之下创造了
           我。下面是我的个站介绍：</p>
         <ul class="card">
           <li>姓名：易有方</li>
-          <li>英文名：eyoufang 尝试模仿小沈阳的发音（域名eyoufang.cn目前正在备案中）</li>
+          <li>英文名：eyoufang 尝试模仿小沈阳的发音
           <li>爱好：一个超级收集狂</li>
         </ul>
         <p>我问过我主人，为什么叫易有方，他说因为「易有房」不让用，所以叫了这个</p><p>（＃￣～￣＃）</p>
@@ -86,7 +86,7 @@ export default {
 
 <style scoped>
    .pattern-img {
-      background-image: url(http://voidsky.cc/wp-content/uploads/2016/12/pexels-photo-3.jpg);
+      background-image: url(http://easyread.top/20181012153931020582249.jpg);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;

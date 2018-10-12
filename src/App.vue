@@ -14,7 +14,7 @@
         </div>
       <div class="title">
       <a href="/#/"><h2>租房猎手</h2></a>
-      <p>by <a href="http://voidsky.cc"  target="_blank">voidsky</a></p>
+      <p>by <a href="http://voidsky.cc"  target="_blank">HawkEye(黄锴)</a></p>
       </div>
       </div>
     </header>

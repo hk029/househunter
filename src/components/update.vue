@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .pattern-img {
-  background-image: url(http://voidsky.cc/wp-content/uploads/2016/12/pexels-photo-3.jpg);
+  background-image: url(http://easyread.top/20181012153931020582249.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
